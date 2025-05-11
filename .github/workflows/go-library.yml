@@ -30,7 +30,7 @@ jobs:
         run: go build ./...
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v4
+        uses: golangci/golangci-lint-action@v8
         with:
           args: --timeout=3m --modules-download-mode=readonly --go ${{ env.go-version }}
           skip-cache: true

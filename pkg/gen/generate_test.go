@@ -26,8 +26,8 @@ func givenJsonFile(t *testing.T) (string, func()) {
 	err = os.WriteFile(jsonFile.Name(), []byte(jsonData), 0644)
 	assert.NoError(t, err)
 	return jsonFile.Name(), func() {
-		jsonFile.Close()
-		os.Remove(jsonFile.Name())
+		_ = jsonFile.Close()
+		_ = os.Remove(jsonFile.Name())
 	}
 }
 
@@ -56,8 +56,8 @@ func TestWriteStructFile(t *testing.T) {
 	// Create a temporary code file for testing
 	codeFile, err := os.CreateTemp(t.TempDir(), "test.go")
 	defer func() {
-		codeFile.Close()
-		os.Remove(codeFile.Name())
+		_ = codeFile.Close()
+		_ = os.Remove(codeFile.Name())
 	}()
 	assert.NoError(t, err)
 
@@ -105,8 +105,8 @@ func TestWriteStructFileJsonError(t *testing.T) {
 	// Create a temporary code file for testing
 	codeFile, err := os.CreateTemp(t.TempDir(), "test.go")
 	defer func() {
-		codeFile.Close()
-		os.Remove(codeFile.Name())
+		_ = codeFile.Close()
+		_ = os.Remove(codeFile.Name())
 	}()
 	assert.NoError(t, err)
 
@@ -148,8 +148,8 @@ func TestWriteStructFileWriteError(t *testing.T) {
 	// Create a temporary code file for testing
 	codeFile, err := os.CreateTemp(t.TempDir(), "test.go")
 	defer func() {
-		codeFile.Close()
-		os.Remove(codeFile.Name())
+		_ = codeFile.Close()
+		_ = os.Remove(codeFile.Name())
 	}()
 	assert.NoError(t, err)
 

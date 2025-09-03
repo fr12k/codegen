@@ -16,5 +16,8 @@ func main() {
 	opts := build.NewGoLibraryBuild("codegen")
 	opts.Verbose = false
 	opts.File = "cmd/main.go"
+	opts.Properties = map[string]*build.ListValue{
+		"goreleaser": build.NewList("true"),
+	}
 	build.Serve(opts)
 }

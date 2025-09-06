@@ -8,6 +8,10 @@ on:
     paths-ignore:
       - '.github/**'
 
+permissions:
+  contents: write # for checkout
+  pull-requests: write # for updating pr
+
 jobs:
   build-and-release:
     permissions:
